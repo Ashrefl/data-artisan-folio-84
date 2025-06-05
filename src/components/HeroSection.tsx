@@ -23,13 +23,19 @@ const HeroSection = () => {
     <section id="accueil" className="min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Limem Achraf
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-600 font-semibold mb-6">
+            Marketing Data Analyst
+          </p>
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
             <span className="block">Data &</span>
             <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Intelligence
             </span>
             <span className="block">Artificielle</span>
-          </h1>
+          </h2>
         </div>
 
         <div className="mb-12">
