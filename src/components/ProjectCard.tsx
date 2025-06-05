@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Project } from '../data/projects';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
 
 interface ProjectCardProps {
   project: Project;
@@ -36,49 +36,72 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div 
-      className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer ${
-        isHovered ? 'ring-2 ring-blue-500' : ''
-      }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className={`w-full h-48 object-cover transition-transform duration-300 ${
-            isHovered ? 'scale-110' : ''
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <div 
+          className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer ${
+            isHovered ? 'ring-2 ring-blue-500' : ''
           }`}
-        />
-        <div className="absolute top-4 right-4">
-          <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700">
-            {project.category}
-          </span>
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="relative overflow-hidden">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className={`w-full h-48 object-cover transition-transform duration-300 ${
+                isHovered ? 'scale-110' : ''
+              }`}
+            />
+            <div className="absolute top-4 right-4">
+              <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700">
+                {project.category}
+              </span>
+            </div>
+          </div>
+          
+          <div className="p-6">
+            <h3 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2">
+              {project.title}
+            </h3>
+            
+            <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag, index) => (
+                <span 
+                  key={index}
+                  className={`px-3 py-1 rounded-full text-xs font-medium ${getTagColor(tag)} transition-colors duration-200`}
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </HoverCardTrigger>
       
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2">
-          {project.title}
-        </h3>
-        
-        <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-          {project.description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag, index) => (
-            <span 
-              key={index}
-              className={`px-3 py-1 rounded-full text-xs font-medium ${getTagColor(tag)} transition-colors duration-200`}
-            >
-              #{tag}
-            </span>
-          ))}
+      <HoverCardContent className="w-80 bg-white border shadow-xl">
+        <div className="space-y-3">
+          <h4 className="font-semibold text-lg text-gray-800">{project.title}</h4>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-1">
+            {project.tags.map((tag, index) => (
+              <span 
+                key={index}
+                className={`px-2 py-1 rounded-full text-xs font-medium ${getTagColor(tag)}`}
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </HoverCardContent>
+    </HoverCard>
   );
 };
 
