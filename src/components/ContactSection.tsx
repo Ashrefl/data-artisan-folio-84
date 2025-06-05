@@ -51,7 +51,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Email</p>
-                    <p className="text-gray-600">votre.email@example.com</p>
+                    <p className="text-gray-600">achreflimem@gmail.com</p>
                   </div>
                 </div>
 
@@ -63,8 +63,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">LinkedIn</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors">
-                      Votre profil LinkedIn
+                    <a href="https://www.linkedin.com/in/achraf-limem/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-colors">
+                      Achraf Limem
                     </a>
                   </div>
                 </div>
