@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Limem Achraf - Data & Intelligence Artificielle</title>
+    <meta name="description" content="Portfolio de Limem Achraf, étudiant en data science et intelligence artificielle, spécialisé en automatisation et analyse de données">
+    <meta name="author" content="Limem Achraf">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Portfolio
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('accueil')" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+                        Accueil
+                    </button>
+                    <button onclick="scrollToSection('projets')" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+                        Projets
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+                        Contact
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Limem Achraf
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-600 font-semibold mb-6">
+                    Marketing Data Analyst
+                </p>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+                    <span class="block">Data &</span>
+                    <span class="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Intelligence
+                    </span>
+                    <span class="block">Artificielle</span>
+                </h2>
+            </div>
+
+            <div class="mb-12">
+                <p id="animated-text" class="text-xl md:text-2xl text-gray-600 leading-relaxed min-h-[3rem]">
+                    <span class="animate-pulse">|</span>
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('projets')" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl">
+                    Découvrir mes projets
+                </button>
+                <button onclick="scrollToSection('contact')" class="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors duration-200">
+                    Me contacter
+                </button>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Mes <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projets</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez mes réalisations en data science, intelligence artificielle et automatisation
+                </p>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl">
+                    Voir plus de projets
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Restons en <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Contact</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Prêt à collaborer sur des projets innovants ? Contactez-moi !
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Informations de contact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Email</p>
+                                    <p class="text-gray-600">achreflimem@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">LinkedIn</p>
+                                    <a href="https://www.linkedin.com/in/achraf-limem/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                        Achraf Limem
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl">
+                                📄 Télécharger mon CV
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Envoyez-moi un message</h3>
+                    
+                    <form onsubmit="handleSubmit(event)" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                Nom complet
+                            </label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="Votre nom">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                Email
+                            </label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="votre.email@example.com">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                                Message
+                            </label>
+                            <textarea id="message" name="message" required rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none" placeholder="Votre message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Portfolio data
+        const portfolioData = {
+            projects: [
+                {
+                    id: 1,
+                    title: "Hackathon - Finaliste",
+                    description: "Automatisation de la personnalisation des messages selon les clics sur des annonces. Utilisation de Make (workflow) et Mistral AI (prompts dynamiques).",
+                    tags: ["NoCode", "Automation", "MistralAI", "Make"],
+                    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
+                    category: "AI"
+                },
+                {
+                    id: 2,
+                    title: "Analyse des prix du carburant",
+                    description: "Nettoyage de fichiers CSV, analyse avec BigQuery & SQL. Dashboard Looker Studio pour trouver les stations les moins chères.",
+                    tags: ["BigQuery", "SQL", "Looker", "Dashboard"],
+                    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop",
+                    category: "Data Analysis"
+                },
+                {
+                    id: 3,
+                    title: "Analyse de la pauvreté en R",
+                    description: "Clustering K-means, tests statistiques (Bartlett, KMO), segmentation socio-économique avec analyses approfondies.",
+                    tags: ["RStudio", "Statistiques", "KMeans"],
+                    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=250&fit=crop",
+                    category: "Statistics"
+                },
+                {
+                    id: 4,
+                    title: "Mémoires de recherche",
+                    description: "Recherches sur l'utilité sociale des organisations ESS et la sécurité alimentaire et dépendance économique.",
+                    tags: ["Recherche", "ESS", "Économie"],
+                    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop",
+                    category: "Research"
+                },
+                {
+                    id: 5,
+                    title: "Web Scraping de recettes",
+                    description: "Extraction de données Marmiton avec BeautifulSoup, nettoyage et préparation pour analyse nutritionnelle complète.",
+                    tags: ["Python", "WebScraping", "BeautifulSoup"],
+                    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop",
+                    category: "Web Scraping"
+                },
+                {
+                    id: 6,
+                    title: "Analyse des ventes (Power BI)",
+                    description: "Création de tableaux de bord interactifs avec visualisations avancées et filtres dynamiques pour optimiser les performances commerciales.",
+                    tags: ["PowerBI", "Ventes", "DataViz"],
+                    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop",
+                    category: "Business Intelligence"
+                }
+            ]
+        };
+
+        // Tag colors
+        const tagColors = {
+            'NoCode': 'bg-green-100 text-green-800',
+            'Automation': 'bg-blue-100 text-blue-800',
+            'MistralAI': 'bg-purple-100 text-purple-800',
+            'Make': 'bg-orange-100 text-orange-800',
+            'BigQuery': 'bg-yellow-100 text-yellow-800',
+            'SQL': 'bg-indigo-100 text-indigo-800',
+            'Looker': 'bg-pink-100 text-pink-800',
+            'Dashboard': 'bg-cyan-100 text-cyan-800',
+            'RStudio': 'bg-red-100 text-red-800',
+            'Statistiques': 'bg-emerald-100 text-emerald-800',
+            'KMeans': 'bg-violet-100 text-violet-800',
+            'Recherche': 'bg-amber-100 text-amber-800',
+            'ESS': 'bg-lime-100 text-lime-800',
+            'Économie': 'bg-teal-100 text-teal-800',
+            'Python': 'bg-blue-100 text-blue-800',
+            'WebScraping': 'bg-slate-100 text-slate-800',
+            'BeautifulSoup': 'bg-rose-100 text-rose-800',
+            'PowerBI': 'bg-orange-100 text-orange-800',
+            'Ventes': 'bg-green-100 text-green-800',
+            'DataViz': 'bg-purple-100 text-purple-800'
+        };
+
+        // Function to render projects
+        function renderProjects() {
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsGrid.innerHTML = '';
+            
+            portfolioData.projects.forEach((project, index) => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'animate-fade-in bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer';
+                projectCard.style.animationDelay = `${index * 0.1}s`;
+                projectCard.addEventListener('mouseenter', () => {
+                    projectCard.classList.add('ring-2', 'ring-blue-500');
+                    const imgElement = projectCard.querySelector('img');
+                    if (imgElement) imgElement.classList.add('scale-110');
+                    const descElement = projectCard.querySelector('.project-desc');
+                    if (descElement) descElement.classList.remove('line-clamp-3');
+                });
+                projectCard.addEventListener('mouseleave', () => {
+                    projectCard.classList.remove('ring-2', 'ring-blue-500');
+                    const imgElement = projectCard.querySelector('img');
+                    if (imgElement) imgElement.classList.remove('scale-110');
+                    const descElement = projectCard.querySelector('.project-desc');
+                    if (descElement) descElement.classList.add('line-clamp-3');
+                });
+                
+                projectCard.innerHTML = `
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="${project.image}" 
+                            alt="${project.title}"
+                            class="w-full h-48 object-cover transition-transform duration-300"
+                        />
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700">
+                                ${project.category}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 line-clamp-2">
+                            ${project.title}
+                        </h3>
+                        
+                        <div class="overflow-hidden transition-all duration-300">
+                            <p class="project-desc text-gray-600 mb-4 leading-relaxed transition-all duration-300 line-clamp-3">
+                                ${project.description}
+                            </p>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            ${project.tags.map(tag => `
+                                <span class="px-3 py-1 rounded-full text-xs font-medium ${tagColors[tag] || 'bg-gray-100 text-gray-800'} transition-colors duration-200">
+                                    #${tag}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                projectsGrid.appendChild(projectCard);
+            });
+        }
+
+        // Text animation for hero section
+        function animateText() {
+            const fullText = "Étudiant en data & IA, passionné par l'automatisation, l'analyse de données et les projets à impact.";
+            const textElement = document.getElementById('animated-text');
+            let currentIndex = 0;
+            
+            const timer = setInterval(() => {
+                if (currentIndex <= fullText.length) {
+                    textElement.innerHTML = fullText.slice(0, currentIndex) + '<span class="animate-pulse">|</span>';
+                    currentIndex++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, 50);
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            console.log('Form submitted:', { name, email, message });
+            alert('Message envoyé ! Je vous répondrai bientôt.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Navigation scroll handling
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Update navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            animateText();
+        });
+    </script>
+</body>
+</html>

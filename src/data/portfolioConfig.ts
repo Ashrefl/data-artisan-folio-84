@@ -1,6 +1,4 @@
 
-import { StaticImageData } from "next/image";
-
 // Types
 export interface Project {
   id: number;
